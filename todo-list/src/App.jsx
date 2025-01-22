@@ -8,15 +8,15 @@ import UserInput from './components/UserInput'
 
 function App(){
   //I want the list to be empty , and the state should change based on what the user has inputted into the label
-  const [tasks , setTask] = useState([])
+  const [tasks , setTasks] = useState([])
 
   const userTask = (e) => {
-    setTask(e.target.value)
+    setTasks(e.target.value)
   }
 
   const handleEvent = (e) => {
     e.preventDefault();
-   setTask(...tasks,task)
+   setTasks([...tasks, tasks])
     
   }
 
