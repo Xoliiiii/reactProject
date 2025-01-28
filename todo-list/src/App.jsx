@@ -8,18 +8,26 @@ function App() {
   const [tasks, setTasks] = useState([]);
  
 //Need another state to track , to track the input 
-const [input , setInput] = useState(" ");
+const [input , setInput] = useState("");
+
+
 
   async function addTask(task) {
     setTasks((currentTasks) => [...currentTasks, task]);
-    setInput("");
   }
 
   function displayInput (e){
     setInput(e.target.value);
   } 
 
-  //State that will remove the input that has been set 
+
+
+//function to remove button 
+const removeItem = async (indexToRemove) => {
+setTasks(tasks.filter((_, index)=> index != indexToRemove))
+console.log("clicked")
+}
+
   
 
 
@@ -36,16 +44,19 @@ const [input , setInput] = useState(" ");
               addTask(input);
             }}
           />
-        {/* Adding a button  to remove the task */}
-        <RemoveTask/>
+        
         </div>
         <div className="taskList mt-4">
-          <ul>
-            {tasks?.map((task, index) => (
-              <li key={index}>{task}</li>
-            ))}
-          </ul>
-        </div>
+  <ul>
+    {tasks?.map((task, index) => (
+      <li key={index}>
+        {/* Button should appear when the task is added  */}
+        {task} 
+         <RemoveTask onClick={() => removeItem(index)}/>
+      </li>
+    ))}
+  </ul>
+</div>
       </div>
     </>
   );

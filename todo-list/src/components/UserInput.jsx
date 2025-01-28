@@ -1,7 +1,7 @@
 import { Input } from "@headlessui/react";
 
 // eslint-disable-next-line react/prop-types
-function UserInput({ onBlur }) {
+function UserInput({ onBlur}) {
   return (
     <Input
       name="task"
